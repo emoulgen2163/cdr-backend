@@ -103,7 +103,7 @@ router.post("/login", async(request, response) => {
 
 router.get("/users", authMiddleware, adminOnly, async(request, response) => {
         try {
-            const users = User.find( {}, {password: 0} ).lean()
+            const users = await User.find( {}, {password: 0} ).lean()
             response.json(
                 {
                     users
