@@ -35,3 +35,6 @@ expressApp.use(cors())
 expressApp.use("/api/cdr", authMiddleware, cdr)
 expressApp.use("/api/users", authMiddleware, adminOnly, cdr)
 expressApp.use("/api/auth", auth)
+expressApp.get("/", (req, res) => {
+  res.json({ message: "CDR Backend API is running!" })
+})
